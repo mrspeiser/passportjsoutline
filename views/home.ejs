@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<% if(!currentUser){ %>
+<div>
+	
+	<h3>Sign Up</h3>
+	<form action="/signup" method="POST" class="form1">
+		<input type="text" name="username" placeholder="username">
+		<input type="password" name="password" placeholder="password">
+		<input type="submit" value="submit" class="submit1">
+	</form>
+</div>
+
+<div>
+	<h3>Sign In</h3>
+	<form action="/login" method="POST" class="form2">
+		<input type="text" name="username" placeholder="username">
+		<input type="password" name="password" placeholder="password">
+		<input type="submit" value="submit" class="submit2">
+	</form>
+</div>
+
+<% } else { %>
+
+<div>
+	<h4> signed in as: <%=currentUser.username%></h4>
+	<a href="/logout"><h3>logout</h3></a>
+</div>
+<% } %>
+
+<script type="text/javascript">
+
+	document.querySelector(".submit1").addEventListener("click", function() {
+		document.querySelector(".form1").submit();
+		
+	});
+
+	document.querySelector(".submit2").addEventListener("click", function() {
+		document.querySelector(".form2").submit();
+		
+	});
+	
+</script>
+
+
+</body>
+</html>
